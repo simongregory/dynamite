@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'dynamite'
+
+responses = ['Requesting Dynamtie Feeds']
+
+dynamite = Dynamite.new
+
+responses << dynamite.most_popular
+responses << dynamite.list_view('brand','b006mh9v') #Doctors
+responses << dynamite.episode_detail('b00wdbgn','b00wdb9w')
+responses << dynamite.playlist('b00wdbgn','b00wdb9w')
+#responses << dynamite.id_type('b00wdbgn') Not working?
+
+puts responses.join("\n\n#{'-'*50}\n\n")

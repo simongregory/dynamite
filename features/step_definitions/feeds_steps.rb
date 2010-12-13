@@ -2,7 +2,7 @@
 
 Before do
   @dynamite = Dynamite.new
-  #@response = nil
+  @response = nil
 end
 
 After do
@@ -21,9 +21,12 @@ Given /^I ask for the (.*) feed$/ do |feed_name|
 end
 
 Then /^the episode detail feed should be returned in XML format$/ do
-  assert_nil @response
+  @response.should_not be(nil)  
+  @response.should match(/\A\<\?xml/)
 end
 
+#TODO - work out how to link this to the right response...
 Then /^the list view feed should be returned in XML format$/ do
-  assert_nil @response
+  @response.should_not be(nil)
+  @response.should match(/\A\<\?xml/)
 end

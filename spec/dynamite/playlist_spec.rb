@@ -18,4 +18,9 @@ describe Playlist, "when first created" do
   it "should be a Feed" do
     @feed.is_a?(Feed).should == true
   end
+  
+  it "should have a expected url" do
+    @feed.url.should =~ /^http:/
+    @feed.url.should =~ /.*bbc\.co\.uk/
+  end
 end

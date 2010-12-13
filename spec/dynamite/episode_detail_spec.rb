@@ -19,8 +19,8 @@ describe EpisodeDetail, "when first created" do
     @feed.is_a?(Feed).should == true
   end
   
-  #it "should have a expected url" do
-  #  @feed.url.should =~ /wwww\.bbc\.co\.uk/
-  #end
-  
+  it "should have a expected url" do
+    @feed.url.should =~ /^http:/
+    @feed.url.should =~ /.*bbc\.co\.uk/
+  end  
 end

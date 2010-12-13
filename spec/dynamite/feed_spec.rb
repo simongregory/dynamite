@@ -14,4 +14,9 @@ describe Feed, "when first created" do
   it "should be Dynamite" do
     @feed.is_a?(Feed).should == true
   end
+  
+  it "should have a expected url" do
+    @feed.url.should =~ /^http:/
+    @feed.url.should =~ /.*bbc\.co\.uk/
+  end
 end

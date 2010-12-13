@@ -33,5 +33,4 @@ describe Dynamite, "when loading an Episode Detail feed" do
     
     feed.should =~ /ion xmlns=\"http:\/\/bbc.co.uk\/2008\/iplayer\/ion.*/
   end
-  
 end

@@ -1,24 +1,25 @@
 # encoding: utf-8
 
-#require 'bundler'
-#Bundler.require
-
+require 'rubygems'
 require 'cucumber/rake/task'
 require 'metric_fu'
 require 'rake/clean'
 require 'rake/rdoctask'
-require 'spec'
-require 'spec/rake/spectask'
+require 'rspec'
+require 'rspec/core/rake_task'
 
-Spec::Rake::SpecTask.new("spec") do |t|
-  t.warning = false
-  t.rcov = false
-  t.spec_files = FileList['spec/**/*_spec.rb']
+desc "Run all examples"
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = %w[--color]
 end
 
-Spec::Rake::SpecTask.new("rcov") do |t|
-  t.warning = true
-  t.rcov = true
+namespace :spec do
+  desc "Run all examples using rcov"
+  RSpec::Core::RakeTask.new :rcov => :cleanup_rcov_files do |t|
+    t.rcov = true
+    t.rcov_opts =  %[-Ilib -Ispec --exclude "gems/*,features"]
+    t.rcov_opts << %[--text-report --sort coverage --no-html --aggregate coverage.data]
+  end
 end
 
 Rake::RDocTask.new do |rdoc|

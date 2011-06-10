@@ -4,7 +4,7 @@ PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
 
 $: << File.join(PROJECT_ROOT, 'lib')
 
-require 'spec/expectations'
+require 'rspec/expectations'
 require 'test/unit'
 require 'dynamite'
 

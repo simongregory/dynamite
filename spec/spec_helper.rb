@@ -6,5 +6,5 @@ $:.push File.dirname(__FILE__)
 require 'dynamite'
 require 'feed_helper'
 
-require 'spec'
-require 'spec/autorun'
+require 'rspec'
+require 'rspec/autorun'

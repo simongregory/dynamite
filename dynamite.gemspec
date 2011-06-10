@@ -6,8 +6,8 @@ require 'bundler'
 require 'dynamite'
 
 Gem::Specification.new do |s|
-  s.name                      = Dynamite::NAME
-  s.version                   = Dynamite::VERSION
+  s.name                      = ION::NAME
+  s.version                   = ION::VERSION
   s.authors                   = ["Simon Gregory"]
   s.homepage                  = "http://www.bbc.co.uk/ion"
   s.summary                   = "Dynamite provides a public view of persistent BBC programme metadata optimised for multiple concurrent varied clients."

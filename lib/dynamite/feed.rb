@@ -18,10 +18,10 @@ class Feed
 
   def headers
     # 'Accept' => "application/json"
-    # "Accept-Encoding" => "gzip" Do we need to set this explicitly.
+    # "Accept-Encoding" => "gzip" # Do we need to set this explicitly.
     {
       'Accept' => "application/xml",
-      'User-Agent' => "Blast-Cap-#{BlastCap::VERSION::STRING}"
+      'User-Agent' => "#{ION::USER_AGENT}-#{ION::VERSION::STRING}"
     }
   end
 

@@ -4,14 +4,26 @@ $LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
 
 require 'dynamite'
 
-responses = ['Requesting Dynamtie Feeds']
+dynamite = Dynamite.new( { :base_path => 'http://www.bbc.co.uk', :format => 'json' } )
 
-dynamite = Dynamite.new
+puts "Dynamite loading..."
+puts "Most Popular:\n\n"
+puts dynamite.most_popular
 
-responses << dynamite.most_popular
-responses << dynamite.list_view('brand','b006mh9v') #Doctors
-responses << dynamite.episode_detail('b00wdbgn','b00wdb9w')
-responses << dynamite.playlist('b00wdbgn','b00wdb9w')
-#responses << dynamite.id_type('b00wdbgn') Not working?
+puts "\n\nNow Next TV:\n\n"
+puts dynamite.multi_now_next 'tv'
 
-puts responses.join("\n\n#{'-'*50}\n\n")
+puts "\n\nNow Next Radio:\n\n"
+puts dynamite.multi_now_next 'radio'
+
+puts "\n\nList view (Doctors):\n\n"
+puts dynamite.list_view 'brand', 'b006mh9v' #Doctors
+
+puts "\n\nEpisode Detail:\n\n"
+puts dynamite.episode_detail 'b00wdbgn', 'b00wdb9w'
+
+puts "\n\nPlaylist:\n\n"
+puts dynamite.playlist 'b00wdbgn', 'b00wdb9w'
+
+puts "\n\nID Type:\n\n"
+puts dynamite.id_type 'b00wdbgn'  #Not working?

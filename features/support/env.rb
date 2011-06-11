@@ -4,13 +4,8 @@ PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
 
 $: << File.join(PROJECT_ROOT, 'lib')
 
-require 'rspec/expectations'
 require 'test/unit'
 require 'dynamite'
-
-# World do
-#   include Test::Unit::Assertions
-# end
 
 vars = [ENV['ENVIRONMENT'], ENV['CI']]
 

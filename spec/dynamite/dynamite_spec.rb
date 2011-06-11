@@ -12,17 +12,20 @@ describe Dynamite, "when first created" do
     dynamite = Dynamite.new
     dynamite.base_path.should == "http://www.bbc.co.uk"
     dynamite.media_set.should == "pc-download"
+    dynamite.format.should == "xml"
   end
   
   it "can have default settings overridden" do
     bp = 'http://www.test.bbc.co.uk'
     ms = 'pc-download-hd'
+    fm = 'json'
     
-    args = { :base_path => bp, :media_set => ms }
+    args = { :base_path => bp, :media_set => ms, :format => fm,  }
     dynamite = Dynamite.new(args)
     
     dynamite.base_path.should == bp
     dynamite.media_set.should == ms
+    dynamite.format.should == fm
   end
 end
 

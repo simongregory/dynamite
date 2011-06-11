@@ -2,17 +2,16 @@
 
 require File.join(File.dirname(__FILE__), "/../spec_helper")
 
-describe EpisodeDetail, "when first created" do
+describe MultiNowNext, "when first created" do
   
   include FeedHelper
   
   before do
-    args = arg_hash('http://www.bbc.co.uk','abcdefgh','zyxwvu','pc-download')
-    @feed = EpisodeDetail.new(args)
+    @feed = MultiNowNext.new({ :base_path => 'http://www.bbc.co.uk' } )
   end
   
-  it "should be a EpisodeDetail" do
-    @feed.instance_of?(EpisodeDetail).should == true
+  it "should be a ListView" do
+    @feed.instance_of?(MultiNowNext).should == true
   end
   
   it "should be a Feed" do
@@ -22,5 +21,6 @@ describe EpisodeDetail, "when first created" do
   it "should have an expected url" do
     @feed.url.should =~ /^http:/
     @feed.url.should =~ /.*bbc\.co\.uk/
-  end  
+    @feed.url.should =~ /multinownext\/service_type\/tv/
+  end
 end

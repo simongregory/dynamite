@@ -10,6 +10,7 @@ class Feed
   def initialize(args)
     @base_path = args[:base_path]
     @media_set = args[:media_set]
+    @format    = args[:format]
   end
 
   def uri
@@ -17,10 +18,9 @@ class Feed
   end
 
   def headers
-    # 'Accept' => "application/json"
-    # "Accept-Encoding" => "gzip" # Do we need to set this explicitly.
+    # "Accept-Encoding" => "gzip" #do we need to set this explicitly?
     {
-      'Accept' => "application/xml",
+      'Accept' => "application/#{@format}",
       'User-Agent' => "#{ION::USER_AGENT}-#{ION::VERSION::STRING}"
     }
   end
@@ -30,6 +30,16 @@ class Feed
     result = Net::HTTP.start(uri.host, uri.port) {|http|
       http.request(request)
     }
+    #result.code
     @result = result.body
+  end
+  
+  def head
+    request = Net::HTTP::Head.new(uri.path,headers)
+    result = Net::HTTP.start(uri.host, uri.port) {|http|
+      http.request(request)
+    }
+    puts result.code
+    result
   end
 end

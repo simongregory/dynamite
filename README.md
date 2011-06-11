@@ -1,3 +1,3 @@
-# Dynamite Integration Tests
+# Dynamite Environment Test
 
 Are Dynamite are cooking up the right brew?

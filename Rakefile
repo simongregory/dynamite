@@ -15,7 +15,7 @@ end
 
 namespace :spec do
   desc "Run all examples using rcov"
-  RSpec::Core::RakeTask.new :rcov => :cleanup_rcov_files do |t|
+  RSpec::Core::RakeTask.new :rcov do |t|
     t.rcov = true
     t.rcov_opts =  %[-Ilib -Ispec --exclude "gems/*,features"]
     t.rcov_opts << %[--text-report --sort coverage --no-html --aggregate coverage.data]
@@ -41,5 +41,13 @@ MetricFu::Configuration.run do |config|
                 :filetypes => ['rb'] }
 end
 
+desc "Build and install the gem"
+task :gem do
+  sh "gem build dynamite.gemspec"
+  sh "gem install dynamite-#{ION::VERSION::STRING}.gem"
+  sh "rm dynamite-#{ION::VERSION::STRING}.gem"
+end
+
+CLEAN.add('*.gem')
 CLEAN.add('rdoc')
 CLEAN.add('tmp')

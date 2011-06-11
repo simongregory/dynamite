@@ -11,11 +11,11 @@ describe Feed, "when first created" do
     @feed = Playlist.new(args)
   end
   
-  it "should be Dynamite" do
+  it "should be a Feed" do
     @feed.is_a?(Feed).should == true
   end
   
-  it "should have a expected url" do
+  it "should have an expected url" do
     @feed.url.should =~ /^http:/
     @feed.url.should =~ /.*bbc\.co\.uk/
   end

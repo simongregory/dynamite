@@ -53,4 +53,3 @@ Then /^the (.*) feed should be returned in JSON format$/ do |feed_name|
   @response.should_not be_nil
   @response.should =~ /\A\{/
 end
-

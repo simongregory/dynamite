@@ -38,15 +38,15 @@ class Flagpole
   end
 
   def multi_now_next(service_type='tv')
-		args = basic_args.merge( { :type => service_type } )
-		feed = MultiNowNext.new(args)
-		feed.head
-	end
+    args = basic_args.merge( { :type => service_type } )
+    feed = MultiNowNext.new(args)
+    feed.head
+  end
 
   private
 
   def basic_args
     { :base_path => @base_path, :media_set => @media_set, :format => @format }
-  end  
-  
+  end
+
 end

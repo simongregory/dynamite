@@ -33,7 +33,7 @@ class Feed
     #result.code
     @result = result.body
   end
-  
+
   def head
     request = Net::HTTP::Head.new(uri.path,headers)
     result = Net::HTTP.start(uri.host, uri.port) {|http|

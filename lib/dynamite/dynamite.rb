@@ -47,7 +47,7 @@ class Dynamite
     feed = MultiNowNext.new(args)
     feed.load
   end
-  
+
   private
 
   def basic_args

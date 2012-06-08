@@ -21,6 +21,6 @@ describe NowNext, "when first created" do
   it "should have the feed url" do
     @feed.url.should =~ /^http:/
     @feed.url.should =~ /.*bbc\.co\.uk/
-    @feed.url.should =~ /nownext\/service_type\/tv/
+    @feed.url.should =~ /nownext\/service\/bbc_one_london/
   end
 end

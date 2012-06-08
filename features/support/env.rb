@@ -16,10 +16,6 @@ def base_path
   "http://www.#{ENV['ENVIRONMENT']}.bbc.co.uk"
 end
 
-Before do
-  @dynamite = Dynamite.new
-end
-
 After do
-  @dynamite = nil
+  clear
 end

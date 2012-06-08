@@ -10,7 +10,7 @@ describe MultiNowNext, "when first created" do
     @feed = MultiNowNext.new({ :base_path => 'http://www.bbc.co.uk' } )
   end
 
-  it "should be a ListView" do
+  it "should be a MultiNowNext" do
     @feed.instance_of?(MultiNowNext).should == true
   end
 
@@ -18,7 +18,7 @@ describe MultiNowNext, "when first created" do
     @feed.is_a?(Feed).should == true
   end
 
-  it "should have an expected url" do
+  it "should have the feed url" do
     @feed.url.should =~ /^http:/
     @feed.url.should =~ /.*bbc\.co\.uk/
     @feed.url.should =~ /multinownext\/service_type\/tv/

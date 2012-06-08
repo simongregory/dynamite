@@ -15,7 +15,7 @@ describe Feed, "when first created" do
     @feed.is_a?(Feed).should == true
   end
 
-  it "should have an expected url" do
+  it "should have the feed url" do
     @feed.url.should =~ /^http:/
     @feed.url.should =~ /.*bbc\.co\.uk/
   end

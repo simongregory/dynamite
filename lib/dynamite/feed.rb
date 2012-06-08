@@ -5,7 +5,7 @@
 # EpisodeDetail, Playlist, NowNext etc.
 #
 class Feed
-  attr_reader :url, :result
+  attr_reader :url, :result, :code
 
   def initialize(args)
     @base_path = args[:base_path]
@@ -30,6 +30,7 @@ class Feed
     result = Net::HTTP.start(uri.host, uri.port) {|http|
       http.request(request)
     }
+    @code = result.code
     @result = result.body
   end
 
@@ -38,7 +39,8 @@ class Feed
     result = Net::HTTP.start(uri.host, uri.port) {|http|
       http.request(request)
     }
-    #puts result.code
+    @code = result.code
     result
   end
+
 end

@@ -4,11 +4,11 @@ Feature: Flagpole
   I want all feeds polled to establish availability
 
   Scenario Outline: ION availablity
-    When I check the status of the <feed> feed
-    Then the HTTP response code should be <response>
+    When I check the status of the <Feed> feed
+    Then the HTTP response code should be <Response>
 
     Examples:
-        | feed                 | response |
+        | Feed                 | Response |
         | now next             | 200      |
         | playlist             | 200      |
         | multi now next tv    | 200      |

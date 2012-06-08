@@ -18,12 +18,8 @@ end
 
 Before do
   @dynamite = Dynamite.new
-  @flagpole = Flagpole.new
-  @response = nil
 end
 
 After do
   @dynamite = nil
-  @flagpole = nil
-  @response = nil
 end

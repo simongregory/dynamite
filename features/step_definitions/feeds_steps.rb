@@ -22,5 +22,5 @@ end
 
 Then /^XML should be returned$/ do
   @response.should =~ /\A\<\?xml/
-  @response.should =~ /ion xmlns=\"http:\/\/bbc.co.uk\/2008\/iplayer\/ion.*/
+  @response.should =~ /(ion|playlist) xmlns=\"http:\/\/bbc.co.uk\/2008\/(iplayer|emp)\/(ion|playlist).*/
 end

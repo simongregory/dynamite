@@ -1,8 +1,7 @@
 source "http://rubygems.org"
 
 gem "cucumber"
-gem "metric_fu"
+gem "rake", "~> 0.9.2.2"
+gem "rspec", "~> 2.10.0"
+gem "rdoc"
 gem "nokogiri"
-gem "rake"
-gem "rcov"
-gem "rspec"

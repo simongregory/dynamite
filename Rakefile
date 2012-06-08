@@ -2,11 +2,13 @@
 
 require 'rubygems'
 require 'cucumber/rake/task'
-require 'metric_fu'
 require 'rake/clean'
-require 'rake/rdoctask'
 require 'rspec'
 require 'rspec/core/rake_task'
+require 'rdoc/task'
+
+desc 'Default: run specs.'
+task :default => :spec
 
 desc "Run all examples"
 RSpec::Core::RakeTask.new(:spec) do |t|
@@ -22,23 +24,11 @@ namespace :spec do
   end
 end
 
-Rake::RDocTask.new do |rdoc|
-  rdoc.title = "Dynamite Blast Cap"
+RDoc::Task.new do |rdoc|
+  rdoc.title = "Dynamite Spider"
   rdoc.rdoc_dir = 'rdoc'
   rdoc.main = "Dynamite"
   rdoc.rdoc_files.include("README.md", "LICENSE", "lib/**/*.rb")
-end
-
-Cucumber::Rake::Task.new(:features) do |t|
-  t.fork = true
-  t.cucumber_opts = ['--format', (ENV['CUCUMBER_FORMAT'] || 'progress')]
-end
-
-MetricFu::Configuration.run do |config|
-  config.rcov[:test_files] = ['spec/**/*_spec.rb']
-  config.flay ={:dirs_to_flay => ['lib'],
-                :minimum_score => 10,
-                :filetypes => ['rb'] }
 end
 
 desc "Build and install the gem"

@@ -32,8 +32,8 @@ end
 describe Dynamite, "when loading an Episode Detail feed" do
   it "should load xml" do
     dynamite = Dynamite.new
-    feed = dynamite.episode_detail('abcdefg','uvwxyz')
+    dynamite.episode_detail('abcdefg','uvwxyz')
 
-    feed.should =~ /ion xmlns=\"http:\/\/bbc.co.uk\/2008\/iplayer\/ion.*/
+    dynamite.feed.result.should =~ /ion xmlns=\"http:\/\/bbc.co.uk\/2008\/iplayer\/ion.*/
   end
 end

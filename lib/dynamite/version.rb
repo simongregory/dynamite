@@ -2,7 +2,7 @@
 
 module ION #:nodoc:
   NAME = 'dynamite'
-  USER_AGENT = 'Blast-Cap'
+  USER_AGENT = 'BBC iPlayer Dynamite Spider'
   module VERSION #:nodoc:
     MAJOR = 0
     MINOR = 0

@@ -13,9 +13,26 @@ class Feed
     @format    = args[:format]
   end
 
-  def uri
-    URI.parse(@url)
+  def load
+    request = Net::HTTP::Get.new(uri.path,headers)
+    result = Net::HTTP.start(uri.host, uri.port) {|http|
+      http.request(request)
+    }
+    @code = result.code
+    @result = result.body
+
+    self
   end
+
+  private
+
+  #def head
+  #  request = Net::HTTP::Head.new(uri.path,headers)
+  #  result = Net::HTTP.start(uri.host, uri.port) {|http|
+  #    http.request(request)
+  #  }
+  #  @code = result.code
+  #end
 
   def headers
     # "Accept-Encoding" => "gzip" #do we need to set this explicitly?
@@ -25,22 +42,7 @@ class Feed
     }
   end
 
-  def load
-    request = Net::HTTP::Get.new(uri.path,headers)
-    result = Net::HTTP.start(uri.host, uri.port) {|http|
-      http.request(request)
-    }
-    @code = result.code
-    @result = result.body
+  def uri
+    URI.parse(@url)
   end
-
-  def head
-    request = Net::HTTP::Head.new(uri.path,headers)
-    result = Net::HTTP.start(uri.host, uri.port) {|http|
-      http.request(request)
-    }
-    @code = result.code
-    result
-  end
-
 end

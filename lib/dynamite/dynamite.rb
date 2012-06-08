@@ -11,31 +11,26 @@ class Dynamite
   end
 
   def most_popular
-    @feed = MostPopular.new(basic_args)
-    @feed.load
+    @feed = MostPopular.new(basic_args).load
   end
 
   def list_view(type='brand',id='zzzzzzz')
     args = basic_args.merge( { :type => type, :id => id  } )
-    @feed = ListView.new(args)
-    @feed.load
+    @feed = ListView.new(args).load
   end
 
   def now_next
-    @feed = NowNext.new(basic_args)
-    @feed.load
+    @feed = NowNext.new(basic_args).load
   end
 
   def episode_detail(epid='aaaaaaaa',vpid='bbbbbbbb')
     args = basic_args.merge( { :epid => epid, :vpid => vpid  } )
-    @feed = EpisodeDetail.new(args)
-    @feed.load
+    @feed = EpisodeDetail.new(args).load
   end
 
   def playlist(epid='b01jc7xv', vpid='b01jc7rc')
     args = basic_args.merge( { :epid => epid, :vpid => vpid  } )
-    @feed = Playlist.new(args)
-    @feed.load
+    @feed = Playlist.new(args).load
   end
 
   def multi_now_next_tv
@@ -50,12 +45,10 @@ class Dynamite
 
   def multi_now_next(service_type='tv')
     args = basic_args.merge( { :type => service_type } )
-    @feed = MultiNowNext.new(args)
-    @feed.load
+    @feed = MultiNowNext.new(args).load
   end
 
   def basic_args
     { :base_path => @base_path, :media_set => @media_set, :format => @format }
   end
-
 end

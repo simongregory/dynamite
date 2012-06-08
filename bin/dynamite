@@ -14,10 +14,10 @@ puts "\n\nNow Next for BBC One:\n\n"
 puts dynamite.now_next
 
 puts "\n\nNow Next TV:\n\n"
-puts dynamite.multi_now_next 'tv'
+puts dynamite.multi_now_next_tv
 
 puts "\n\nNow Next Radio:\n\n"
-puts dynamite.multi_now_next 'radio'
+puts dynamite.multi_now_next_radio
 
 puts "\n\nList view (Doctors):\n\n"
 puts dynamite.list_view 'brand', 'b006mh9v' #Doctors

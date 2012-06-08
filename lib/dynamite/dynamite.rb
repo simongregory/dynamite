@@ -26,12 +26,6 @@ class Dynamite
     feed.load
   end
 
-  def id_type(id)
-    args = basic_args.merge( { :id => id  } )
-    feed = IDType.new(args)
-    feed.load
-  end
-
   def episode_detail(epid,vpid)
     args = basic_args.merge( { :epid => epid, :vpid => vpid  } )
     feed = EpisodeDetail.new(args)

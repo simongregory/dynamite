@@ -7,10 +7,6 @@ Feature: Flagpole
     When I check the status of the episode detail feed
     Then the HTTP response code should be 200
 
-  Scenario: Polling the ID Type Feed
-    When I check the status of the id type feed
-    Then the HTTP response code should be 200
-
   Scenario: Polling the List View Feed
     When I check the status of the list view feed
     Then the HTTP response code should be 200

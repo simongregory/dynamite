@@ -19,10 +19,6 @@ class Flagpole
     feed.head
   end
 
-  def id_type(id)
-    args = basic_args.merge( { :id => id  } )
-    feed = IDType.new(args)
-    feed.head
   end
 
   def episode_detail(epid,vpid)

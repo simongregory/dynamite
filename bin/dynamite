@@ -27,6 +27,3 @@ puts dynamite.episode_detail 'b00wdbgn', 'b00wdb9w'
 
 puts "\n\nPlaylist:\n\n"
 puts dynamite.playlist 'b00wdbgn', 'b00wdb9w'
-
-puts "\n\nID Type:\n\n"
-puts dynamite.id_type 'b00wdbgn'  #Not working?

@@ -10,6 +10,9 @@ puts "Dynamite loading..."
 puts "Most Popular:\n\n"
 puts dynamite.most_popular
 
+puts "\n\nNow Next for BBC One:\n\n"
+puts dynamite.now_next
+
 puts "\n\nNow Next TV:\n\n"
 puts dynamite.multi_now_next 'tv'
 

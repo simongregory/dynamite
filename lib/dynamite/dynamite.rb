@@ -1,8 +1,5 @@
 # encoding: utf-8
 
-#
-# Mix the nitroglycerine.
-#
 class Dynamite
   attr_reader :base_path, :media_set
   attr_accessor :format
@@ -21,6 +18,11 @@ class Dynamite
   def list_view(type,id)
     args = basic_args.merge( { :type => type, :id => id  } )
     feed = ListView.new(args)
+    feed.load
+  end
+
+  def now_next
+    feed = NowNext.new(basic_args)
     feed.load
   end
 

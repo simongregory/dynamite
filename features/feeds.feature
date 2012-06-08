@@ -18,3 +18,8 @@ Feature: As a dynamite consumer I want to know that feeds are available
 	Scenario: Loading the Multi Now Next TV Feed
 		When I ask for the multi now next tv xml feed
 		Then the multi now next feed should be returned in XML format
+
+	Scenario: Loading the Now Next Feed
+		When I ask for the now next xml feed
+		Then the now next feed should be returned in XML format
+

@@ -4,7 +4,6 @@ PROJECT_ROOT = File.expand_path(File.join(File.dirname(__FILE__), '..', '..'))
 
 $: << File.join(PROJECT_ROOT, 'lib')
 
-require 'test/unit'
 require 'dynamite'
 
 vars = [ENV['ENVIRONMENT'], ENV['CI']]
@@ -15,4 +14,16 @@ vars = [ENV['ENVIRONMENT'], ENV['CI']]
 
 def base_path
   "http://www.#{ENV['ENVIRONMENT']}.bbc.co.uk"
+end
+
+Before do
+  @dynamite = Dynamite.new
+  @flagpole = Flagpole.new
+  @response = nil
+end
+
+After do
+  @dynamite = nil
+  @flagpole = nil
+  @response = nil
 end

@@ -3,22 +3,15 @@ Feature: As a dynamite consumer I want to know that feeds are available
   As the iPlayer team
   I want to be able to load programme metadata from Dynamite in JSON format
 
-  Scenario: Episode Detail
-    When I ask for the episode detail json feed
-    Then the episode detail feed should be returned in JSON format
+  Scenario Outline: Feed results returned as JSON
+    When I request <Feed> data in json
+    Then <Format> should be returned
 
-  Scenario: List View
-    When I ask for the list view json feed
-    Then the list view feed should be returned in JSON format
-
-  Scenario: Now Next
-    When I ask for the now next json feed
-    Then the now next feed should be returned in JSON format
-
-  Scenario: Multi Now Next Radio
-    When I ask for the multi now next radio json feed
-    Then the multi now next feed should be returned in JSON format
-
-  Scenario: Multi Now Next TV
-    When I ask for the multi now next tv json feed
-    Then the multi now next feed should be returned in JSON format
+    Examples:
+        | Feed                 | Format |
+        | now next             | JSON   |
+        | multi now next tv    | JSON   |
+        | multi now next radio | JSON   |
+        | list view            | JSON   |
+        | episode detail       | JSON   |
+        | most popular         | JSON   |

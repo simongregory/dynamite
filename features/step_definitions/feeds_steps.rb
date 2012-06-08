@@ -1,25 +1,26 @@
 # encoding: utf-8
 
-Given /^I ask for the (.*) (xml|json) feed$/ do |feed_name,results_format|
-  check @dynamite, feed_name, results_format
+When /^I check the status of the (.*) feed$/ do |feed|
+  check @flagpole, feed, 'xml'
 end
 
-When /^I check the status of the (.*) feed$/ do |feed_name|
-  check @flagpole, feed_name, 'xml'
+Then /^the HTTP response code should be (\d+)$/ do |code|
+  @response.code.should == code
 end
 
-Then /^the HTTP response code should be (\d+)$/ do |arg1|
-  @response.should_not be_nil
-  @response.code.should == '200'
+Given /^I request (.*) data in XML$/ do |feed|
+  check @dynamite, feed, 'xml'
 end
 
-Then /^the (.*) feed should be returned in XML format$/ do |feed_name|
-  @response.should_not be_nil
+Given /^I request (.*) data in json$/ do |feed|
+  check @dynamite, feed, 'json'
+end
+
+Then /^JSON should be returned$/ do
+  @response.should =~ /\A\{/
+end
+
+Then /^XML should be returned$/ do
   @response.should =~ /\A\<\?xml/
   @response.should =~ /ion xmlns=\"http:\/\/bbc.co.uk\/2008\/iplayer\/ion.*/
-end
-
-Then /^the (.*) feed should be returned in JSON format$/ do |feed_name|
-  @response.should_not be_nil
-  @response.should =~ /\A\{/
 end

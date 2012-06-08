@@ -3,30 +3,16 @@ Feature: Flagpole
   As a User
   I want all feeds polled to establish availability
 
-  Scenario: Episode Details
-    When I check the status of the episode detail feed
-    Then the HTTP response code should be 200
+  Scenario Outline: ION availablity
+    When I check the status of the <feed> feed
+    Then the HTTP response code should be <response>
 
-  Scenario: List View
-    When I check the status of the list view feed
-    Then the HTTP response code should be 200
-
-  Scenario: Most Popular
-    When I check the status of the most popular feed
-    Then the HTTP response code should be 200
-
-  Scenario: Now Next Feed
-    When I check the status of the now next feed
-    Then the HTTP response code should be 200
-
-  Scenario: Multi Now Next Radio
-    When I check the status of the multi now next radio feed
-    Then the HTTP response code should be 200
-
-  Scenario: Multi Now Next TV
-    When I check the status of the multi now next tv feed
-    Then the HTTP response code should be 200
-
-  Scenario: Hardtalk Playlist
-    When I check the status of the playlist feed
-    Then the HTTP response code should be 200
+    Examples:
+        | feed                 | response |
+        | now next             | 200      |
+        | playlist             | 200      |
+        | multi now next tv    | 200      |
+        | multi now next radio | 200      |
+        | list view            | 200      |
+        | episode detail       | 200      |
+        | most popular         | 200      |

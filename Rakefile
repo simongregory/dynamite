@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'rubygems'
-require 'cucumber/rake/task'
 require 'rake/clean'
 require 'rspec'
 require 'rspec/core/rake_task'
@@ -13,15 +12,6 @@ task :default => :spec
 desc "Run all examples"
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = %w[--color]
-end
-
-namespace :spec do
-  desc "Run all examples using rcov"
-  RSpec::Core::RakeTask.new :rcov do |t|
-    t.rcov = true
-    t.rcov_opts =  %[-Ilib -Ispec --exclude "gems/*,features"]
-    t.rcov_opts << %[--text-report --sort coverage --no-html --aggregate coverage.data]
-  end
 end
 
 RDoc::Task.new do |rdoc|

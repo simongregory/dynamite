@@ -8,6 +8,7 @@ def check(method,feed_name,results_format)
   when 'most popular' then @response = method.most_popular
   when 'multi now next radio' then @response = method.multi_now_next('radio')
   when 'multi now next tv' then @response = method.multi_now_next('tv')
+  when 'now next' then @response = method.now_next
   when 'playlist' then @response = method.playlist('aaaaaaaa','bbbbbbbb')
 
   else

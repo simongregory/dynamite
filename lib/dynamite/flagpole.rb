@@ -19,6 +19,8 @@ class Flagpole
     feed.head
   end
 
+  def now_next
+    NowNext.new(basic_args).head
   end
 
   def episode_detail(epid,vpid)

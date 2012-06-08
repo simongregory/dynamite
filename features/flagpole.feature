@@ -27,6 +27,10 @@ Feature: Flagpole
     When I check the status of the multi now next tv feed
     Then the HTTP response code should be 200
 
+  Scenario: Polling the Now Next Feed
+    When I check the status of the now next feed
+    Then the HTTP response code should be 200
+
   Scenario: Polling the Playlist Feed
     When I check the status of the playlist feed
     Then the HTTP response code should be 200

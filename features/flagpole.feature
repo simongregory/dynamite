@@ -16,3 +16,4 @@ Feature: Flagpole
         | list view            | 200      |
         | episode detail       | 200      |
         | most popular         | 200      |
+        | schedule             | 200      |

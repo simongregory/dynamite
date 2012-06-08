@@ -16,6 +16,7 @@ Feature: Feeds provided in JSON or XML
         | episode detail       | XML    |
         | most popular         | XML    |
         | playlist             | XML    |
+        | schedule             | XML    |
 
   Scenario Outline: Feed results returned as JSON
     When I request <Feed> data in json
@@ -29,3 +30,4 @@ Feature: Feeds provided in JSON or XML
         | list view            | JSON   |
         | episode detail       | JSON   |
         | most popular         | JSON   |
+        | schedule             | JSON   |

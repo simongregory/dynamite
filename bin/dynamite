@@ -27,3 +27,7 @@ puts dynamite.episode_detail 'b00wdbgn', 'b00wdb9w'
 
 puts "\n\nPlaylist:\n\n"
 puts dynamite.playlist 'b00wdbgn', 'b00wdb9w'
+
+puts "\n\nSchedule:\n\n"
+puts dynamite.schedule
+

@@ -41,6 +41,10 @@ class Dynamite
     multi_now_next 'radio'
   end
 
+  def schedule
+    @feed = Schedule.new(basic_args).load
+  end
+
   private
 
   def multi_now_next(service_type='tv')

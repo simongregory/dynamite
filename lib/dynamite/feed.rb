@@ -2,7 +2,7 @@
 
 #
 # Abstract feed class, use one of the concrete implementations - ListView,
-# EpisodeDetail, or Playlist.
+# EpisodeDetail, Playlist, NowNext etc.
 #
 class Feed
   attr_reader :url, :result
@@ -30,7 +30,6 @@ class Feed
     result = Net::HTTP.start(uri.host, uri.port) {|http|
       http.request(request)
     }
-    #result.code
     @result = result.body
   end
 
@@ -39,7 +38,7 @@ class Feed
     result = Net::HTTP.start(uri.host, uri.port) {|http|
       http.request(request)
     }
-    puts result.code
+    #puts result.code
     result
   end
 end

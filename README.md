@@ -1,3 +1,3 @@
-# BBC iPlayer Dynamite Spider
+# Dynamite
 
-A testing tool to check Dynamite is serving the expected content to iPlayer clients.
+An idea for a testing tool to check Dynamite is serving up the expected meta data to iPlayer clients.
